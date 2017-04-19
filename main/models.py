@@ -31,8 +31,8 @@ class Room(models.Model):
 
 
 class Gallery(models.Model):
-    image_name = models.CharField('img name', max_length=100)
-    image = models.ImageField(upload_to='hotel_gallery')
+    image_name = models.CharField('img name', max_length=100, blank=True, null=True)
+    image = models.ImageField(upload_to='hotel_gallery', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Галерея'
@@ -43,10 +43,10 @@ class Gallery(models.Model):
 
 
 class Stock(models.Model):
-    hotel = models.ForeignKey('Hotel')
+    hotel = models.ManyToManyField('Hotel')
     name = models.CharField('stock_name', max_length=100)
     description = models.TextField('stock_name', max_length=1000)
-    stock_img = models.ForeignKey('Gallery')
+    # stock_img = models.ForeignKey('Gallery', blank=True)
     stock_both = models.NullBooleanField(null=True)
 
     class Meta:
