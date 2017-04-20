@@ -20,7 +20,7 @@ class Room(models.Model):
     room_quantity = models.SmallIntegerField('number_of_rooms')
     # price = models.FloatField('room_price', max_length=10)
     inclusive = models.TextField('room_include', max_length=1000)
-    img = models.ForeignKey('Gallery')
+    # img = models.ForeignKey('Gallery')
 
     class Meta:
         verbose_name = 'Номер'
@@ -43,9 +43,9 @@ class Gallery(models.Model):
 
 
 class Stock(models.Model):
-    hotel = models.ManyToManyField('Hotel')
-    name = models.CharField('stock_name', max_length=100)
-    description = models.TextField('stock_name', max_length=1000)
+    hotels = models.ManyToManyField('Hotel')
+    name = models.CharField('name', max_length=100)
+    description = models.TextField('description', max_length=1000)
     # stock_img = models.ForeignKey('Gallery', blank=True)
     stock_both = models.NullBooleanField(null=True)
 

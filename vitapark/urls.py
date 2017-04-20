@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from main.views import index, stock
+from main.views import hotel, stock
+from akvadar.views import stock_akvadar
+from borisfen.views import stock_borisfen
 
 urlpatterns = [
-    url(r'^$', stock),
+    url(r'^$', hotel),
+    url(r'^stock/', stock),
+    url(r'^akvadar/', stock_akvadar),
+    url(r'^borisfen/', stock_borisfen),
     url(r'^admin/', admin.site.urls),
 ]

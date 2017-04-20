@@ -1,8 +1,2 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-akvadar/migrations/0001_initial.py
-borisfen/migrations/0001_initial.py
-calculator/
-database.sqlite3
-feedback/
-main/migrations/0001_initial.py

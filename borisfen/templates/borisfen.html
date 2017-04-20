@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>borisfen</title>
+</head>
+<body>
+
+<a href="/">back to main page</a>
+
+<h1> stock borisfen</h1>
+
+{% for s in stock %}
+    <p>{{ s.id }}</p>
+    <p>{{ s.name }}</p>
+    <p>{{ s.description }}</p>
+{% endfor %}
+
+</body>
+</html>

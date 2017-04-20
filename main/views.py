@@ -5,11 +5,18 @@ from .models import Hotel, Stock
 from django.http.response import HttpResponse
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'index.html', {'qwe': 'aaaa'})
-
-def stock(request):
-    site = Stock.objects.all()
-    context = {'site': site}
+def hotel(request):
+    hotel = Hotel.objects.all()
+    stock = Stock.objects.filter(stock_both=True)
+    context = {
+        'hotel': hotel,
+        'stock': stock,
+    }
     return render(request, 'index.html', context=context)
 
+def stock(request):
+    stock = Stock.objects.all()
+    context = {
+        'stock': stock,
+    }
+    return render(request, 'stock.html', context=context)

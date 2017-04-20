@@ -8,12 +8,20 @@
 
 <h1>hi!</h1>
 
-{{ site.name }}
+<h1>welcome to vita parkhotels</h1>
 
-{% for s in site %}
-    {{ s }}
-    <p>    {{ s.name }}   -- name</p>
-    <p>    {{ s.description }}  -- description</p>
+    <ul>
+        {% for s in hotel %}
+            <li><a href="{{ s.name }}">{{ s.name }}</a>   -- name</li>
+        {% endfor %}
+    </ul>
+
+<h2> stock all</h2>
+
+{% for s in stock %}
+    <p>{{ s.id }}</p>
+    <p>{{ s.name }}</p>
+    <p>{{ s.description }}</p>
 {% endfor %}
 
 </body>

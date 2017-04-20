@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>akvadar</title>
+</head>
+<body>
+
+<a href="/">back to main page</a>
+
+<h1>stock</h1>
+
+{% for s in stock %}
+    <p>{{ s.name }} id {{ s.id }}</p>
+    <p>{{ s.description }}</p>
+    --------------------------
+{% endfor %}
+
+</body>
+</html>
