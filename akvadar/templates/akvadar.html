@@ -16,5 +16,29 @@
     <p>{{ s.description }}</p>
 {% endfor %}
 
+<h1>center zdoroviya</h1>
+
+{% for s in hc %}
+{#    <p>{{ s.id }}</p>#}
+    <a href="{{ s.pk }}">{{ s.name }}</a>
+{#    <span>{{ s.slug }}</span>#}
+{% endfor %}
+
+
+
+<h1>health services</h1>
+
+{% for s in hs %}
+{#    <p>{{ s.id }}</p>#}
+    <p>{{ s.pk }}</p>
+    <p>{{ s.hs_name }}</p>
+    <p>{{ s.short }}</p>
+    <p>{{ s.description }}</p>
+{#    <p>{{ s.slug }}</p>#}
+{% endfor %}
+
+
+
+
 </body>
 </html>

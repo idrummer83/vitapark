@@ -1,8 +1,13 @@
 from django.contrib import admin
 
-from .models import HealthCenterBlock, HealthCenter, HealthBlog
+from .models import HealthCenter, HealthService
 # Register your models here.
 
-admin.site.register(HealthCenterBlock)
-admin.site.register(HealthCenter)
-admin.site.register(HealthBlog)
+@admin.register(HealthCenter)
+class HealthCenterAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+
+
+
+# admin.site.register(HealthCenter)
+admin.site.register(HealthService)

@@ -13,14 +13,22 @@ class Hotel(models.Model):
         return self.name
 
 
+# class Mymanager(models.Model):
+#     def zzz(self):
+#         return super().zzz().filter(price__gt==234)
+#     def set_price(self, k):
+#         super().zzz().update(price=F('price')*k)
+
+
 class Room(models.Model):
     hotel = models.ForeignKey('Hotel')
     category = models.CharField('room_name', max_length=100)
     apartament = models.CharField('room_building', max_length=100)
     room_quantity = models.SmallIntegerField('number_of_rooms')
-    # price = models.FloatField('room_price', max_length=10)
+    price = models.DecimalField('room_price', decimal_places=1, max_digits=100000, max_length=10, null=True, blank=True)
     inclusive = models.TextField('room_include', max_length=1000)
     # img = models.ForeignKey('Gallery')
+    # objects = Mymanager()
 
     class Meta:
         verbose_name = 'Номер'
@@ -28,6 +36,8 @@ class Room(models.Model):
 
     def __str__(self):
         return self.category
+    # def getPrice(self):
+    #     return "{} grn".format(self.price)
 
 
 class Gallery(models.Model):
@@ -43,7 +53,7 @@ class Gallery(models.Model):
 
 
 class Stock(models.Model):
-    hotels = models.ManyToManyField('Hotel')
+    hotels = models.ManyToManyField('Hotel', blank=True)
     name = models.CharField('name', max_length=100)
     description = models.TextField('description', max_length=1000)
     # stock_img = models.ForeignKey('Gallery', blank=True)

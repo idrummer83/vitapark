@@ -2,48 +2,38 @@ from django.db import models
 
 # Create your models here.
 
-class HealthCenterBlock(models.Model):
-    health_header = models.CharField('health name', max_length=100)
+class HealthCenter(models.Model):
+    name = models.CharField('health service', max_length=100)
+    slug = models.SlugField(verbose_name='link', unique=True)
 
     class Meta:
-        verbose_name = 'health_name header'
-        verbose_name_plural = 'health_name header'
+        verbose_name = 'health center service name'
+        verbose_name_plural = 'health center service name'
 
     def __str__(self):
-        return self.health_header
+        return self.name
 
 
-class HealthCenter(models.Model):
-    health_name = models.CharField('health name', max_length=100)
-    health_description = models.TextField('health description', max_length=1000)
+# class HealthService(models.Model):
+class HealthService(HealthCenter):
+    # service = models.ForeignKey('HealthCenter')
+    hs_name = models.CharField('service name', max_length=100)
+    short = models.CharField('short description', max_length=500)
+    description = models.TextField('full description')
 
     class Meta:
         verbose_name = 'health_name'
         verbose_name_plural = 'health_name'
 
     def __str__(self):
-        return self.health_name
+        return self.name
 
 
-class HealthBlog(models.Model):
-    blog_header = models.CharField('header', max_length=100)
-    blog_text = models.TextField('header', max_length=1000)
-
-    class Meta:
-        verbose_name = 'Health blog'
-        verbose_name_plural = 'Health blog'
+class Feedback(models.Model):
+    # hotel = models.ForeignKey('Hotel')
+    feedback = models.TextField('asd')
+    nick = models.CharField('name', max_length=12)
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.blog_header
-
-
-class AdditionalService(models.Model):
-    addit_serv_header = models.CharField('header', max_length=100)
-    addit_serv_text = models.TextField('header', max_length=1000)
-
-    class Meta:
-        verbose_name = 'Health blog'
-        verbose_name_plural = 'Health blog'
-
-    def __str__(self):
-        return self.addit_serv_header
+        return "Feedback {}".format(self.nick)

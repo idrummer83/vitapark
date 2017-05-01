@@ -4,7 +4,7 @@ from main.models import Stock
 
 # Create your views here.
 def stock_borisfen(request):
-    stock = Stock.objects.filter(id=1)
+    stock = Stock.objects.filter(id=2)
     context = {
         'stock': stock,
     }

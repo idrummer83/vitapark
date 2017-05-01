@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feedback</title>
+</head>
+<body>
+
+    <h1>leave your feedback</h1>
+
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% for feedback in feedbacks %}
+<p><strong>{{feedback.nick}}</strong>: {{feedback.date}}</p>
+<p>{{feedback.feedback}}</p>
+<hr>
+{% endfor %}
+    <form method="post">
+    {% csrf_token %}
+{#        <select name="hotel">#}
+{#            {% for h in hotel %}#}
+{#                <option value="{{ h.id }}" name="{{ h.name }}">{{ h.name }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+        <br>
+    {{form}}
+        <br>
+        <p><input type="submit" value="Ok"></p>
+    </form>
+
+</body>
+</html>
