@@ -16,14 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from main.views import hotel
-from akvadar.views import stockakvadar
+from akvadar.views import paidservices
 from borisfen.views import stock_borisfen
 
 urlpatterns = [
     url(r'^$', hotel, name='hotel'),
     url(r'^stock/', include('main.urls'), name='stock'),
     url(r'^feedback/', include('feedback.urls')),
-    # url(r'^akvadar/', stockakvadar, name='akvadar'),
+    url(r'^paid/',  paidservices, name='paidservices'),
     url(r'^akvadar/', include('akvadar.urls')),
     url(r'^borisfen/', stock_borisfen, name='borisfen'),
     url(r'^admin/', admin.site.urls),

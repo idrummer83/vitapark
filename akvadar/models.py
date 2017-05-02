@@ -37,3 +37,71 @@ class Feedback(models.Model):
 
     def __str__(self):
         return "Feedback {}".format(self.nick)
+
+
+class PaidServices(models.Model):
+    name = models.CharField('paid services', max_length=200)
+    class Meta:
+        verbose_name = 'платные услуги'
+        verbose_name_plural = 'платные услуги'
+
+    def __str__(self):
+        return self.name
+
+
+class Services(models.Model):
+    ps = models.ForeignKey('PaidServices', blank=True, on_delete=models.CASCADE)
+    name = models.CharField('hz service', max_length=200)
+    class Meta:
+        verbose_name = 'услуги2'
+        verbose_name_plural = 'услуги2'
+
+    def __str__(self):
+        return self.name
+
+
+class ServicesInclude(models.Model):
+    ps = models.ForeignKey('PaidServices', blank=True)
+    head = models.ForeignKey('Services', blank=True)
+    name = models.CharField('name service', max_length=200)
+    time = models.SmallIntegerField('Durability')
+    price = models.SmallIntegerField('price')
+    class Meta:
+        verbose_name = 'услуги3'
+        verbose_name_plural = 'услуги3'
+
+    def __str__(self):
+        return self.name
+
+class PaidServices(models.Model):
+    name = models.CharField('paid services', max_length=200)
+    class Meta:
+        verbose_name = 'платные услуги'
+        verbose_name_plural = 'платные услуги'
+
+    def __str__(self):
+        return self.name
+
+
+class Services(models.Model):
+    ps = models.ForeignKey('PaidServices', blank=True, on_delete=models.CASCADE)
+    name = models.CharField('hz service', blank=True, max_length=200)
+    class Meta:
+        verbose_name = 'услуги2'
+        verbose_name_plural = 'услуги2'
+
+    def __str__(self):
+        return self.name
+
+
+class ServicesInclude(models.Model):
+    head = models.ForeignKey('Services', blank=True)
+    name = models.CharField('name service', max_length=200)
+    time = models.CharField('Durability', max_length=100)
+    price = models.SmallIntegerField('price')
+    class Meta:
+        verbose_name = 'услуги3'
+        verbose_name_plural = 'услуги3'
+
+    def __str__(self):
+        return self.name

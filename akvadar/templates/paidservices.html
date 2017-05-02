@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paid services</title>
+</head>
+<body>
+
+
+<h1>paid services</h1>
+
+{% for p in ps %}
+    <p>{{ p }}</p>
+{% endfor %}
+<div></div>
+----------
+{% for c in s %}
+    <div>{{ c.id }}_{{ c }}_{{ c.pk }}</div>
+{% endfor %}
+<div></div>
+
+----------
+{% for i in si %}
+    <div>{{ i }}</div>
+{% endfor %}
+
+
+</body>
+</html>

@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from main.models import Stock
-from .models import HealthCenter, HealthService, Feedback
-from akvadar.forms import Feedbackform
-# from vitapark import akvadar
+from .models import HealthCenter, HealthService, PaidServices, Services, ServicesInclude
 
 # Create your views here.
 def stockakvadar(request):
@@ -30,3 +28,12 @@ def healthcenter(request, context):
         # 'slug': slug,
     }
     return render(request, 'asd.html', context=context)
+
+
+def paidservices(request):
+    context = {
+        'ps': PaidServices.objects.all(),
+        's': Services.objects.all(),
+        'si': ServicesInclude.objects.all(),
+    }
+    return render(request, 'paidservices.html', context=context)
